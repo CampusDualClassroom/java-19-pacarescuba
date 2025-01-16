@@ -53,24 +53,20 @@ public class Exercise19 {
   }
 
   public static String getBidimensionalString(int[][] intArrayBi) {
-    StringBuilder stringBuilderRows = new StringBuilder();
-    for (int i = 0; i < intArrayBi.length; i++) {
-      StringBuilder stringBuilderColumn = new StringBuilder();
-
-      for (int j = 0; j < intArrayBi[i].length; j++) {
-        stringBuilderColumn.append(intArrayBi[i][j]);
-        stringBuilderColumn.append(" ");
+    StringBuilder stringBuilder = new StringBuilder();
+    for (int[] ints : intArrayBi) {
+      for (int anInt : ints) {
+        stringBuilder.append(anInt).append(" ");
       }
-      stringBuilderRows.append(stringBuilderColumn.toString().trim());
-      stringBuilderRows.append("\n");
+      stringBuilder.deleteCharAt(stringBuilder.length() - 1).append("\n");
     }
-    return stringBuilderRows.toString().trim();
+    return stringBuilder.toString().trim();
   }
 
   public static String getUnidimensionalString(int[] uniArray) {
     StringBuilder stringBuilder = new StringBuilder();
-    for (int i = 0; i < uniArray.length; i++) {
-      stringBuilder.append(uniArray[i]);
+    for (int j : uniArray) {
+      stringBuilder.append(j);
       stringBuilder.append(" ");
     }
     return stringBuilder.toString().trim();
